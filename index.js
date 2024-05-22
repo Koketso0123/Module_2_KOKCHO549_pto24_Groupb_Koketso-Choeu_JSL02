@@ -35,6 +35,18 @@ const addNewGoal = () => {
     // ⚠️ Hint 4: Event listener
     // The event listener that removes goals when clicked is not related to this issue.
     // Focus on preventing duplicates for now.
+
+    // the line below fetches the list items from the ul 
+    const goals = goalList.getElementsByTagName('li');
+    // the line below checks the list items
+    for (let i = 0; i < goals.length; i++) {
+        // the line below checks if duplicates exist among the list items
+   if (goals[i].textContent === goalInput) {
+            alert("This goal has already been achieved.");
+            return;
+        } 
+    }
+
     
     const newGoal = document.createElement('li');
     newGoal.textContent = goalInput;
